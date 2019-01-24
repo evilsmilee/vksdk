@@ -1,0 +1,41 @@
+package nickb.ru.vksdk.di.component;
+
+import javax.inject.Singleton;
+
+import dagger.Component;
+import nickb.ru.vksdk.common.manager.NetworkManager;
+import nickb.ru.vksdk.di.module.ApplicationModule;
+import nickb.ru.vksdk.di.module.ManagerModule;
+import nickb.ru.vksdk.di.module.RestModule;
+import nickb.ru.vksdk.mvp.presenter.MainPresenter;
+import nickb.ru.vksdk.mvp.presenter.MembersPresenter;
+import nickb.ru.vksdk.mvp.presenter.NewsFeedPresenter;
+import nickb.ru.vksdk.ui.activity.BaseActivity;
+import nickb.ru.vksdk.ui.activity.MainActivity;
+import nickb.ru.vksdk.ui.fragment.NewsFeedFragment;
+import nickb.ru.vksdk.ui.holder.NewsItemBodyHolder;
+import nickb.ru.vksdk.ui.holder.NewsItemFooterHolder;
+
+@Singleton
+@Component(modules = {ApplicationModule.class, ManagerModule.class, RestModule.class})
+public interface ApplicationComponent {
+
+    //activities
+    void inject(BaseActivity activity);
+    void inject(MainActivity activity);
+
+    void inject(NewsFeedFragment fragment);
+
+    //holders
+    void inject(NewsItemBodyHolder holder);
+    void inject(NewsItemFooterHolder holder);
+
+    //presenters
+    void inject(NewsFeedPresenter presenter);
+    void inject(MainPresenter presenter);
+    void inject(MembersPresenter presenter);
+
+    //managers
+    void inject(NetworkManager networkManager);
+
+}
