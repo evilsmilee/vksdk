@@ -1,6 +1,6 @@
 package nickb.ru.vksdk.common;
 
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.util.ArrayMap;
 import android.util.Log;
 import android.view.ViewGroup;

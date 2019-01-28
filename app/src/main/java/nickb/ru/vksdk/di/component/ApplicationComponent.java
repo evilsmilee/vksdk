@@ -7,6 +7,8 @@ import nickb.ru.vksdk.common.manager.NetworkManager;
 import nickb.ru.vksdk.di.module.ApplicationModule;
 import nickb.ru.vksdk.di.module.ManagerModule;
 import nickb.ru.vksdk.di.module.RestModule;
+import nickb.ru.vksdk.mvp.presenter.BoardPresenter;
+import nickb.ru.vksdk.mvp.presenter.InfoPresenter;
 import nickb.ru.vksdk.mvp.presenter.MainPresenter;
 import nickb.ru.vksdk.mvp.presenter.MembersPresenter;
 import nickb.ru.vksdk.mvp.presenter.NewsFeedPresenter;
@@ -34,6 +36,8 @@ public interface ApplicationComponent {
     void inject(NewsFeedPresenter presenter);
     void inject(MainPresenter presenter);
     void inject(MembersPresenter presenter);
+    void inject(BoardPresenter presenter);
+    void inject(InfoPresenter presenter);
 
     //managers
     void inject(NetworkManager networkManager);

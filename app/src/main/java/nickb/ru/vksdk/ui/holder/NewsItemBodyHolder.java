@@ -1,7 +1,7 @@
 package nickb.ru.vksdk.ui.holder;
 
 import android.graphics.Typeface;
-import android.support.annotation.NonNull;
+import androidx.annotation.NonNull;
 import android.view.View;
 import android.widget.TextView;
 

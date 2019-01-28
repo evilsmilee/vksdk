@@ -1,7 +1,7 @@
 package nickb.ru.vksdk.common.manager;
 
-import android.support.annotation.IdRes;
-import android.support.v4.app.FragmentTransaction;
+import androidx.annotation.IdRes;
+import androidx.fragment.app.FragmentTransaction;
 
 import java.util.Stack;
 
@@ -20,6 +20,7 @@ public class MyFragmentManager {
         if (activity != null && !activity.isFinishing() && !isAlreadyContaints(fragment)) {
             FragmentTransaction transaction = createAddTransaction(activity, fragment, false);
             transaction.replace(containerId, fragment);
+
             commitAddTransaction(activity, fragment, transaction, false);
         }
     }
@@ -68,7 +69,6 @@ public class MyFragmentManager {
 
         if (canRemove) {
             FragmentTransaction transaction = activity.getSupportFragmentManager().beginTransaction();
-
             mFragmentStack.pop();
             mCurrentFragment = mFragmentStack.lastElement();
 

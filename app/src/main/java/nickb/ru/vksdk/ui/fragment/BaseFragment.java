@@ -2,16 +2,17 @@ package nickb.ru.vksdk.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.annotation.StringRes;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StringRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.arellomobile.mvp.MvpAppCompatFragment;
+import com.arellomobile.mvp.MvpFragment;
 
+import nickb.ru.vksdk.androidx.MvpAppCompatFragment;
 import nickb.ru.vksdk.ui.activity.BaseActivity;
 
 public abstract class BaseFragment extends MvpAppCompatFragment {

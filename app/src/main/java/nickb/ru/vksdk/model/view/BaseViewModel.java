@@ -1,6 +1,6 @@
 package nickb.ru.vksdk.model.view;
 
-import android.support.annotation.LayoutRes;
+import androidx.annotation.LayoutRes;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,8 +23,12 @@ public abstract class BaseViewModel {
     public enum LayoutTypes {
         NewsFeedItemHeader(R.layout.item_news_header),
         NewsFeedItemBody(R.layout.item_news_body),
+        NewsFeedItemFooter(R.layout.item_news_footer),
         Member(R.layout.item_member),
-        NewsFeedItemFooter(R.layout.item_news_footer);
+        InfoStatus(R.layout.item_info_status),
+        InfoContacts(R.layout.item_info_contacts),
+        InfoLinks(R.layout.item_info_links),
+        Topic(R.layout.item_topic);
 
 
         private final int id;

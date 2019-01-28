@@ -1,12 +1,9 @@
 package nickb.ru.vksdk.ui.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Toast;
 
-import com.arellomobile.mvp.MvpAppCompatActivity;
 import com.arellomobile.mvp.presenter.InjectPresenter;
 import com.mikepenz.google_material_typeface_library.GoogleMaterial;
 import com.mikepenz.materialdrawer.AccountHeader;
@@ -74,7 +71,6 @@ public class MainActivity extends BaseActivity implements MainView {
                 .build();
         mDrawer = new DrawerBuilder()
                 .withActivity(this)
-                .withToolbar(toolbar)
                 .withTranslucentStatusBar(true)
                 .withActionBarDrawerToggle(true)
                 .withAccountHeader(mAccountHeader)

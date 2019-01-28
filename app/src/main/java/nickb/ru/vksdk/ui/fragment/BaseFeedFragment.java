@@ -1,12 +1,11 @@
 package nickb.ru.vksdk.ui.fragment;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.SimpleItemAnimator;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.SimpleItemAnimator;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -35,6 +34,7 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
 
     protected BaseFeedPresenter mBaseFeedPresenter;
 
+    private boolean isWithEndlessList;
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
@@ -45,6 +45,13 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
         ButterKnife.bind(this, view);
         mBaseFeedPresenter = onCreateFeedPresenter();
         mBaseFeedPresenter.loadStart();
+
+    }
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        isWithEndlessList = true;
     }
 
     @Override
@@ -61,15 +68,16 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
         MyLinearLayoutManager myLinearLayoutManager = new MyLinearLayoutManager(getActivity());
         mRecyclerView.setLayoutManager(myLinearLayoutManager);
 
-        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
-                if(myLinearLayoutManager.isOnNextPagePosition()) {
-                    mBaseFeedPresenter.loadNext(mBaseAdapter.getRealItemCount());
-                }
-            }
-        });
-
+       if (isWithEndlessList) {
+           mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+               @Override
+               public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+                   if (myLinearLayoutManager.isOnNextPagePosition()) {
+                       mBaseFeedPresenter.loadNext(mBaseAdapter.getRealItemCount());
+                   }
+               }
+           });
+       }
         ((SimpleItemAnimator) mRecyclerView.getItemAnimator()).setSupportsChangeAnimations(false);
     }
 
@@ -124,4 +132,12 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     }
 
     protected abstract BaseFeedPresenter onCreateFeedPresenter();
+
+    public boolean isWithEndlessList() {
+        return isWithEndlessList;
+    }
+
+    public void setWithEndlessList(boolean withEndlessList) {
+        isWithEndlessList = withEndlessList;
+    }
 }

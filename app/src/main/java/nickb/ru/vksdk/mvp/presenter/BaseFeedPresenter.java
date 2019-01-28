@@ -24,6 +24,8 @@ public abstract class BaseFeedPresenter<V extends BaseFeedView> extends MvpPrese
 
     private boolean mIsInLoading;
 
+
+
     @Inject
     NetworkManager mNetworkManager;
 

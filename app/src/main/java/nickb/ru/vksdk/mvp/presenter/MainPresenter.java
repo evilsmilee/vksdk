@@ -23,6 +23,8 @@ import nickb.ru.vksdk.mvp.view.MainView;
 import nickb.ru.vksdk.rest.api.UsersApi;
 import nickb.ru.vksdk.rest.model.request.UsersGetRequestModel;
 import nickb.ru.vksdk.ui.fragment.BaseFragment;
+import nickb.ru.vksdk.ui.fragment.BoardFragment;
+import nickb.ru.vksdk.ui.fragment.InfoFragment;
 import nickb.ru.vksdk.ui.fragment.MembersFragment;
 import nickb.ru.vksdk.ui.fragment.MyPostsFragment;
 import nickb.ru.vksdk.ui.fragment.NewsFeedFragment;
@@ -111,6 +113,12 @@ public class MainPresenter extends MvpPresenter<MainView> {
                 break;
             case 4:
                 fragment = new MembersFragment();
+                break;
+            case 5:
+                fragment = new BoardFragment();
+                break;
+            case 6:
+                fragment = new InfoFragment();
                 break;
 
         }

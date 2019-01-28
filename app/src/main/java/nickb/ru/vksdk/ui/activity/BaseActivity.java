@@ -1,24 +1,21 @@
 package nickb.ru.vksdk.ui.activity;
 
 import android.os.Bundle;
-import android.support.annotation.LayoutRes;
-
-import android.support.v7.widget.Toolbar;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-
-
-import com.arellomobile.mvp.MvpAppCompatActivity;
+import android.widget.Toolbar;
 
 import javax.inject.Inject;
 
-
+import androidx.annotation.LayoutRes;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.MyApplication;
 import nickb.ru.vksdk.R;
+import nickb.ru.vksdk.androidx.MvpAppCompatActivity;
 import nickb.ru.vksdk.common.manager.MyFragmentManager;
 import nickb.ru.vksdk.ui.fragment.BaseFragment;
+
 
 public abstract class BaseActivity extends MvpAppCompatActivity {
 
@@ -32,14 +29,14 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
     Toolbar toolbar;
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         MyApplication.getsApplicationComponent().inject(this);
         setContentView(R.layout.activity_base);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
+        setActionBar(toolbar);
+
 
 
         FrameLayout parent = findViewById(R.id.main_wrapper);

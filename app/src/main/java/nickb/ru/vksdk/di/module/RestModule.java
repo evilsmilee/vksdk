@@ -6,6 +6,7 @@ import javax.inject.Singleton;
 import dagger.Module;
 import dagger.Provides;
 import nickb.ru.vksdk.rest.RestClient;
+import nickb.ru.vksdk.rest.api.BoardApi;
 import nickb.ru.vksdk.rest.api.GroupsApi;
 import nickb.ru.vksdk.rest.api.UsersApi;
 import nickb.ru.vksdk.rest.api.WallApi;
@@ -40,5 +41,9 @@ public class RestModule {
     @Singleton
     @Provides
     public GroupsApi provideGroupsApi() { return mRestClient.createService(GroupsApi.class);}
+
+    @Singleton
+    @Provides
+    public BoardApi provideBoardApi() {return  mRestClient.createService(BoardApi.class);}
 
 }

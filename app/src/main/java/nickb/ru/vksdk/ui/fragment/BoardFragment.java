@@ -10,12 +10,13 @@ import com.arellomobile.mvp.presenter.InjectPresenter;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.mvp.presenter.BaseFeedPresenter;
-import nickb.ru.vksdk.mvp.presenter.MembersPresenter;
+import nickb.ru.vksdk.mvp.presenter.BoardPresenter;
 
-public class MembersFragment extends BaseFeedFragment {
+public class BoardFragment extends  BaseFeedFragment {
+
 
     @InjectPresenter
-    MembersPresenter mPresenter;
+    BoardPresenter mBoardPresenter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -26,15 +27,16 @@ public class MembersFragment extends BaseFeedFragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this, view);
+
     }
 
     @Override
     protected BaseFeedPresenter onCreateFeedPresenter() {
-        return mPresenter;
+        return mBoardPresenter;
     }
 
     @Override
     public int onCreateToolbarTitle() {
-        return R.string.screen_name_members;
+        return R.string.screen_name_topics;
     }
 }
