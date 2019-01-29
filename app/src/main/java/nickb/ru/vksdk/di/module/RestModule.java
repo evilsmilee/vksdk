@@ -9,6 +9,7 @@ import nickb.ru.vksdk.rest.RestClient;
 import nickb.ru.vksdk.rest.api.BoardApi;
 import nickb.ru.vksdk.rest.api.GroupsApi;
 import nickb.ru.vksdk.rest.api.UsersApi;
+import nickb.ru.vksdk.rest.api.VideoApi;
 import nickb.ru.vksdk.rest.api.WallApi;
 
 @Module
@@ -45,5 +46,9 @@ public class RestModule {
     @Singleton
     @Provides
     public BoardApi provideBoardApi() {return  mRestClient.createService(BoardApi.class);}
+
+    @Singleton
+    @Provides
+    public VideoApi provideVideoApi() {return  mRestClient.createService(VideoApi.class);}
 
 }
