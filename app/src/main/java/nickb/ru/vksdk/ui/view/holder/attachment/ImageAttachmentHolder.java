@@ -14,6 +14,8 @@ import nickb.ru.vksdk.MyApplication;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.common.manager.MyFragmentManager;
 import nickb.ru.vksdk.model.view.attachment.ImageAttachmentViewModel;
+import nickb.ru.vksdk.ui.activity.BaseActivity;
+import nickb.ru.vksdk.ui.fragment.ImageFragment;
 import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public class ImageAttachmentHolder extends BaseViewHolder<ImageAttachmentViewModel> {
@@ -35,6 +37,10 @@ public class ImageAttachmentHolder extends BaseViewHolder<ImageAttachmentViewMod
     public void bindViewHolder(ImageAttachmentViewModel imageAttachmentViewModel) {
 
         Glide.with(itemView.getContext()).load(imageAttachmentViewModel.getPhotoUrl()).into(image);
+        if (imageAttachmentViewModel.needClick) {
+            itemView.setOnClickListener(v -> myFragmentManager.addFragment((BaseActivity) itemView.getContext(),
+                    ImageFragment.newInstance(imageAttachmentViewModel.getPhotoUrl()), R.id.main_wrapper));
+        }
 
     }
 
