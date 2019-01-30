@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import nickb.ru.vksdk.R;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
+import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public abstract class BaseViewModel {
 
@@ -28,7 +28,19 @@ public abstract class BaseViewModel {
         InfoStatus(R.layout.item_info_status),
         InfoContacts(R.layout.item_info_contacts),
         InfoLinks(R.layout.item_info_links),
-        Topic(R.layout.item_topic);
+        Topic(R.layout.item_topic),
+
+        AttachmentAudio(R.layout.item_attachment_audio),
+        AttachmentDoc(R.layout.item_attachment_doc),
+        AttachmentDocImage(R.layout.item_attachment_doc_image),
+        AttachmentImage(R.layout.item_attachment_image),
+        AttachmentLink(R.layout.item_attachment_link),
+        AttachmentLinkExternal(R.layout.item_attachment_link_external),
+        AttachmentPage(R.layout.item_attachment_page),
+        AttachmentVideo(R.layout.item_attachment_video),
+
+        OpenedPostHeader(R.layout.item_opened_post_header),
+        OpenedPostRepostHeader(R.layout.item_opened_post_repost_header);
 
 
         private final int id;

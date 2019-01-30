@@ -1,4 +1,4 @@
-package nickb.ru.vksdk.ui.holder;
+package nickb.ru.vksdk.ui.view.holder;
 
 import android.content.Context;
 import androidx.annotation.NonNull;

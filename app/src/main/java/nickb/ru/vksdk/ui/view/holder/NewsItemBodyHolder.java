@@ -1,4 +1,4 @@
-package nickb.ru.vksdk.ui.holder;
+package nickb.ru.vksdk.ui.view.holder;
 
 import android.graphics.Typeface;
 import androidx.annotation.NonNull;
@@ -11,7 +11,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.MyApplication;
 import nickb.ru.vksdk.R;
+import nickb.ru.vksdk.common.manager.MyFragmentManager;
+import nickb.ru.vksdk.common.utils.UiHelper;
 import nickb.ru.vksdk.model.view.NewsItemBodyViewModel;
+import nickb.ru.vksdk.ui.activity.BaseActivity;
+import nickb.ru.vksdk.ui.fragment.OpenedPostFragment;
 
 public class NewsItemBodyHolder extends BaseViewHolder<NewsItemBodyViewModel> {
 
@@ -19,6 +23,9 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsItemBodyViewModel> {
     public TextView tvText;
     @BindView(R.id.tv_attachments)
     public TextView tvAttachments;
+
+    @Inject
+    MyFragmentManager myFragmentManager;
 
     @Inject
     protected Typeface mFontGoogle;
@@ -37,11 +44,17 @@ public class NewsItemBodyHolder extends BaseViewHolder<NewsItemBodyViewModel> {
     public void bindViewHolder(NewsItemBodyViewModel item) {
             tvText.setText(item.getText());
             tvAttachments.setText(item.getmAttachmentString());
+        itemView.setOnClickListener(view -> myFragmentManager.addFragment((BaseActivity) view.getContext(),
+                OpenedPostFragment.newInstance(item.getId()),
+                R.id.main_wrapper));
+        UiHelper.getInstance().setUpTextViewWithVisibility(tvText, item.getText());
+        UiHelper.getInstance().setUpTextViewWithVisibility(tvAttachments, item.getmAttachmentString());
     }
 
     @Override
     public void unbindViewHolder() {
             tvText.setText(null);
             tvAttachments.setText(null);
+            itemView.setOnClickListener(null);
     }
 }

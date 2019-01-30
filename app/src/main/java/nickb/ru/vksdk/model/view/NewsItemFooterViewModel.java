@@ -6,8 +6,8 @@ import nickb.ru.vksdk.model.WallItem;
 import nickb.ru.vksdk.model.view.counter.CommentCounterViewModel;
 import nickb.ru.vksdk.model.view.counter.LikeCounterViewModel;
 import nickb.ru.vksdk.model.view.counter.RepostCounterViewModel;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
-import nickb.ru.vksdk.ui.holder.NewsItemFooterHolder;
+import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
+import nickb.ru.vksdk.ui.view.holder.NewsItemFooterHolder;
 
 public class NewsItemFooterViewModel extends BaseViewModel {
 

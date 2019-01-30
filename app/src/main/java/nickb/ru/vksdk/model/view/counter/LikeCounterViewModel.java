@@ -1,6 +1,6 @@
 package nickb.ru.vksdk.model.view.counter;
 
-import nickb.ru.vksdk.model.Likes;
+import nickb.ru.vksdk.model.countable.Likes;
 
 
 public class LikeCounterViewModel extends CounterViewModel {

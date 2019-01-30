@@ -17,7 +17,7 @@ import nickb.ru.vksdk.common.manager.NetworkManager;
 import nickb.ru.vksdk.model.view.BaseViewModel;
 import nickb.ru.vksdk.mvp.view.BaseFeedView;
 
-public abstract class BaseFeedPresenter<V extends BaseFeedView> extends MvpPresenter<BaseFeedView> {
+public abstract class BaseFeedPresenter<V extends BaseFeedView> extends MvpPresenter<V> {
 
     private static final int START_PAGE_SIZE = 15;
     private static final int NEXT_PAGE_SIZE = 15;

@@ -3,8 +3,7 @@ package nickb.ru.vksdk.model.view;
 import android.view.View;
 
 import nickb.ru.vksdk.model.WallItem;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
-import nickb.ru.vksdk.ui.holder.NewsItemBodyHolder;
+import nickb.ru.vksdk.ui.view.holder.NewsItemBodyHolder;
 
 public class NewsItemBodyViewModel extends BaseViewModel {
     private int mId;

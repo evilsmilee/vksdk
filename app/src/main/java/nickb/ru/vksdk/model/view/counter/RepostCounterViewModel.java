@@ -1,6 +1,6 @@
 package nickb.ru.vksdk.model.view.counter;
 
-import nickb.ru.vksdk.model.Reposts;
+import nickb.ru.vksdk.model.countable.Reposts;
 
 public class RepostCounterViewModel extends CounterViewModel {
 

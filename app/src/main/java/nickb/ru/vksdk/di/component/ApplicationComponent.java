@@ -12,11 +12,15 @@ import nickb.ru.vksdk.mvp.presenter.InfoPresenter;
 import nickb.ru.vksdk.mvp.presenter.MainPresenter;
 import nickb.ru.vksdk.mvp.presenter.MembersPresenter;
 import nickb.ru.vksdk.mvp.presenter.NewsFeedPresenter;
+import nickb.ru.vksdk.mvp.presenter.OpenedPostPresenter;
 import nickb.ru.vksdk.ui.activity.BaseActivity;
 import nickb.ru.vksdk.ui.activity.MainActivity;
 import nickb.ru.vksdk.ui.fragment.NewsFeedFragment;
-import nickb.ru.vksdk.ui.holder.NewsItemBodyHolder;
-import nickb.ru.vksdk.ui.holder.NewsItemFooterHolder;
+import nickb.ru.vksdk.ui.fragment.OpenedPostFragment;
+import nickb.ru.vksdk.ui.view.holder.NewsItemBodyHolder;
+import nickb.ru.vksdk.ui.view.holder.NewsItemFooterHolder;
+import nickb.ru.vksdk.ui.view.holder.attachment.ImageAttachmentHolder;
+import nickb.ru.vksdk.ui.view.holder.attachment.VideoAttachmentHolder;
 
 @Singleton
 @Component(modules = {ApplicationModule.class, ManagerModule.class, RestModule.class})
@@ -26,11 +30,15 @@ public interface ApplicationComponent {
     void inject(BaseActivity activity);
     void inject(MainActivity activity);
 
+    //fragments
     void inject(NewsFeedFragment fragment);
+    void inject(OpenedPostFragment fragment);
 
     //holders
     void inject(NewsItemBodyHolder holder);
     void inject(NewsItemFooterHolder holder);
+    void inject(ImageAttachmentHolder holder);
+    void inject(VideoAttachmentHolder holder);
 
     //presenters
     void inject(NewsFeedPresenter presenter);
@@ -38,6 +46,7 @@ public interface ApplicationComponent {
     void inject(MembersPresenter presenter);
     void inject(BoardPresenter presenter);
     void inject(InfoPresenter presenter);
+    void inject(OpenedPostPresenter presenter);
 
     //managers
     void inject(NetworkManager networkManager);

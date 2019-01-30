@@ -8,6 +8,9 @@ import io.realm.RealmList;
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import nickb.ru.vksdk.model.attachment.ApiAttachment;
+import nickb.ru.vksdk.model.countable.Comments;
+import nickb.ru.vksdk.model.countable.Likes;
+import nickb.ru.vksdk.model.countable.Reposts;
 
 public class WallItem extends RealmObject {
 

@@ -8,4 +8,6 @@
     <color name="colorIconDis">#c4cbd1</color>
     <color name="colorDivider">#1f0000</color>
     <color name="colorDefaultWhite">#f5f5f5</color>
+
+    <color name="colorIcon2">#a9aeb1</color>
 </resources>

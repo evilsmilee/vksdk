@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.R;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
+import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public class InfoContactsViewModel extends BaseViewModel {
 

@@ -12,7 +12,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.model.Member;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
+import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public class MemberViewModel extends BaseViewModel {
 

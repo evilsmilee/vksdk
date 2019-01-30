@@ -1,4 +1,4 @@
-package nickb.ru.vksdk.ui.holder;
+package nickb.ru.vksdk.ui.view.holder;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;

@@ -8,7 +8,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.model.Group;
-import nickb.ru.vksdk.ui.holder.BaseViewHolder;
+import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public class InfoStatusViewModel extends BaseViewModel {
 
