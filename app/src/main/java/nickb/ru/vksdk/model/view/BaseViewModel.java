@@ -39,6 +39,10 @@ public abstract class BaseViewModel {
         AttachmentPage(R.layout.item_attachment_page),
         AttachmentVideo(R.layout.item_attachment_video),
 
+        CommentHeader(R.layout.item_comment_header),
+        CommentBody(R.layout.item_comment_body),
+        CommentFooter(R.layout.item_comment_footer),
+
         OpenedPostHeader(R.layout.item_opened_post_header),
         OpenedPostRepostHeader(R.layout.item_opened_post_repost_header);
 

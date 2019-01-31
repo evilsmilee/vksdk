@@ -11,6 +11,7 @@ import de.hdodenhof.circleimageview.CircleImageView;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.common.utils.UiHelper;
 import nickb.ru.vksdk.common.utils.Utils;
+import nickb.ru.vksdk.model.CommentItem;
 import nickb.ru.vksdk.model.WallItem;
 import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
@@ -36,6 +37,16 @@ public class OpenedPostRepostHeaderViewModel extends BaseViewModel {
         this.mDate = forwardedPost.getDate();
     }
 
+    public OpenedPostRepostHeaderViewModel(CommentItem commentItem) {
+
+        this.mId = commentItem.getId();
+
+        this.mProfileName = commentItem.getSenderName();
+        this.mProfilePhoto = commentItem.getSenderPhoto();
+
+        this.mText = commentItem.getDisplayText();
+
+    }
 
     @Override
     public LayoutTypes getType() {
@@ -87,6 +98,7 @@ public class OpenedPostRepostHeaderViewModel extends BaseViewModel {
 
             ButterKnife.bind(this, itemView);
         }
+
 
         @Override
         public void bindViewHolder(OpenedPostRepostHeaderViewModel openedPostRepostHeaderViewModel) {

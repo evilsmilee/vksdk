@@ -10,6 +10,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.common.utils.UiHelper;
+import nickb.ru.vksdk.model.CommentItem;
 import nickb.ru.vksdk.model.WallItem;
 import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
@@ -32,6 +33,16 @@ public class OpenedPostHeaderViewModel extends BaseViewModel {
 
         this.mText = wallItem.getText();
     }
+
+     public OpenedPostHeaderViewModel(CommentItem commentItem) {
+
+         this.mId = commentItem.getId();
+
+         this.mProfileName = commentItem.getSenderName();
+         this.mProfilePhoto = commentItem.getSenderPhoto();
+
+         this.mText = commentItem.getDisplayText();
+     }
 
 
     @Override

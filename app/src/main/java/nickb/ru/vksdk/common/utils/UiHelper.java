@@ -48,4 +48,6 @@ public class UiHelper {
             textView.setTextColor(res.getColor(color));
     }
 
+
+
 }
