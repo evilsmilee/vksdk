@@ -2,7 +2,9 @@ package nickb.ru.vksdk.ui.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
@@ -16,6 +18,7 @@ import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.mvp.presenter.BaseFeedPresenter;
 import nickb.ru.vksdk.mvp.presenter.NewsFeedPresenter;
 import nickb.ru.vksdk.rest.api.WallApi;
+import nickb.ru.vksdk.ui.activity.CreatePostActivity;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -57,6 +60,21 @@ public class NewsFeedFragment extends BaseFeedFragment {
     @Override
     protected BaseFeedPresenter onCreateFeedPresenter() {
         return mPresenter;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getBaseActivity().mFab.setOnClickListener(view -> {
+
+            Intent intent = new Intent(getActivity(), CreatePostActivity.class);
+            startActivityForResult(intent, 0);
+        });
+    }
+
+    @Override
+    public boolean needFab() {
+        return true;
     }
 
 

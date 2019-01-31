@@ -44,7 +44,9 @@ public abstract class BaseViewModel {
         CommentFooter(R.layout.item_comment_footer),
 
         OpenedPostHeader(R.layout.item_opened_post_header),
-        OpenedPostRepostHeader(R.layout.item_opened_post_repost_header);
+        OpenedPostRepostHeader(R.layout.item_opened_post_repost_header),
+
+        CreatePostText(R.layout.item_create_post_text);;
 
 
         private final int id;

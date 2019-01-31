@@ -5,6 +5,8 @@ import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.Toolbar;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 import javax.inject.Inject;
 
 import androidx.annotation.LayoutRes;
@@ -27,6 +29,9 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
 
     @BindView(R.id.toolbar)
     Toolbar toolbar;
+
+    @BindView(R.id.fab)
+    public FloatingActionButton mFab;
 
 
     @Override
@@ -51,9 +56,7 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
     protected abstract int getMainContentLayout();
 
 
-    public void fragmentOnScreen(BaseFragment fragment) {
-        setToolbarTitle(fragment.createToolbarTitle(this));
-    }
+
 
     public void setToolbarTitle(String title) {
         if (getSupportActionBar() != null) {
@@ -83,4 +86,20 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
         super.onBackPressed();
         removeCurrentFragment();
     }
+
+    public void setupFabVisibility(boolean needFab) {
+        if (mFab == null) return;
+
+        if (needFab) {
+            mFab.show();
+        } else {
+            mFab.hide();
+        }
+    }
+
+    public void fragmentOnScreen(BaseFragment baseFragment) {
+        setToolbarTitle(baseFragment.createToolbarTitle(this));
+        setupFabVisibility(baseFragment.needFab());
+    }
+
 }

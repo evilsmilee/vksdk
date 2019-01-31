@@ -84,13 +84,8 @@ public class CommentBodyViewModel extends BaseViewModel {
             UiHelper.getInstance().setUpTextViewWithMessage(tvText, commentBodyViewModel.getText(), "");
             UiHelper.getInstance().setUpTextViewWithVisibility(tvAttachments, commentBodyViewModel.getAttachmentsString());
 
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    mFragmentManager.addFragment((BaseActivity) itemView.getContext(),
-                            OpenedCommentFragment.newInstance(commentBodyViewModel.getId()), R.id.main_wrapper);
-                }
-            });
+            itemView.setOnClickListener(view -> mFragmentManager.addFragment((BaseActivity) itemView.getContext(),
+                    OpenedCommentFragment.newInstance(commentBodyViewModel.getId()), R.id.main_wrapper));
         }
 
         @Override

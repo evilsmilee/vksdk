@@ -1,5 +1,6 @@
 package nickb.ru.vksdk.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -12,6 +13,7 @@ import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.model.Place;
 import nickb.ru.vksdk.mvp.presenter.BaseFeedPresenter;
 import nickb.ru.vksdk.mvp.presenter.CommentsPresenter;
+import nickb.ru.vksdk.ui.activity.CreatePostActivity;
 
 public class CommentsFragment extends BaseFeedFragment {
 
@@ -63,6 +65,23 @@ public class CommentsFragment extends BaseFeedFragment {
     @Override
     public int onCreateToolbarTitle() {
         return R.string.screen_name_comments;
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        getBaseActivity().mFab.setOnClickListener(view -> {
+            Intent intent = new Intent(getBaseActivity(), CreatePostActivity.class);
+            intent.putExtra("type", "comment");
+            intent.putExtra("owner_id", Integer.parseInt(mPlace.getOwnerId()));
+            intent.putExtra("id", Integer.parseInt(mPlace.getPostId()));
+            startActivityForResult(intent, 0);
+        });
+    }
+
+    @Override
+    public boolean needFab() {
+        return true;
     }
 
 }
