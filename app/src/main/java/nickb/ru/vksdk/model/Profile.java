@@ -7,6 +7,8 @@ import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 
 public class Profile extends RealmObject implements Owner {
+    public Profile() {
+    }
 
     @PrimaryKey
     @SerializedName("id")
@@ -45,6 +47,16 @@ public class Profile extends RealmObject implements Owner {
     @SerializedName("hidden")
     @Expose
     private int hidden;
+
+    private boolean isContact;
+
+    public boolean isContact() {
+        return isContact;
+    }
+
+    public void setContact(boolean contact) {
+        isContact = contact;
+    }
 
 
     public String getFirstName() {

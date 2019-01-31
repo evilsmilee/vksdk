@@ -18,8 +18,6 @@ public class CreatePostTextViewModel extends BaseViewModel {
 
     }
 
-
-
     public String getMessage() {
         return mMessage;
     }
@@ -32,9 +30,6 @@ public class CreatePostTextViewModel extends BaseViewModel {
     public LayoutTypes getType() {
         return LayoutTypes.CreatePostText;
     }
-
-
-
 
     @Override
     public NewPostTextViewHolder onCreateViewHolder(View view) {

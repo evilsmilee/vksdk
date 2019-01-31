@@ -22,7 +22,7 @@ public class InfoContactsViewModel extends BaseViewModel {
         return new InfoContactsViewHolder(view);
     }
 
-    static class InfoContactsViewHolder extends BaseViewHolder<InfoContactsViewModel> {
+ public    static class InfoContactsViewHolder extends BaseViewHolder<InfoContactsViewModel> {
 
         @BindView(R.id.rv_contacts)
         RelativeLayout rvContacts;

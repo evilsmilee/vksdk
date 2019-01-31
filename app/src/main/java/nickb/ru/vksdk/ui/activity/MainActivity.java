@@ -2,6 +2,7 @@ package nickb.ru.vksdk.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.widget.Toast;
 
 import com.arellomobile.mvp.presenter.InjectPresenter;
@@ -22,6 +23,10 @@ import com.vk.sdk.api.VKError;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
 import nickb.ru.vksdk.CurrentUser;
 import nickb.ru.vksdk.MyApplication;
 import nickb.ru.vksdk.R;
@@ -29,6 +34,8 @@ import nickb.ru.vksdk.consts.ApiConstants;
 import nickb.ru.vksdk.model.Profile;
 import nickb.ru.vksdk.mvp.presenter.MainPresenter;
 import nickb.ru.vksdk.mvp.view.MainView;
+import nickb.ru.vksdk.rest.api.AccountApi;
+import nickb.ru.vksdk.rest.model.request.AccountRegisterDeviceRequest;
 import nickb.ru.vksdk.ui.fragment.BaseFragment;
 import nickb.ru.vksdk.ui.fragment.NewsFeedFragment;
 
@@ -36,6 +43,9 @@ public class MainActivity extends BaseActivity implements MainView {
 
     @InjectPresenter
     MainPresenter mPresenter;
+
+    @Inject
+    AccountApi mAccountApi;
 
     private Drawer mDrawer;
 
@@ -109,6 +119,11 @@ public class MainActivity extends BaseActivity implements MainView {
     public void startSignIn() {
         VKSdk.login(this, ApiConstants.DEFAULT_LOGIN_SCOPE);
         setUpDrawer();
+        //регистрируем устройство на сервере ВК как получатель push-сообщений
+        mAccountApi.registerDevice(new AccountRegisterDeviceRequest(Settings.Secure.getString(getContentResolver(), Settings.Secure.ANDROID_ID)).toMap())
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe();
     }
 
     @Override

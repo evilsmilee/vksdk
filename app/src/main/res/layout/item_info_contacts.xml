@@ -2,9 +2,12 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorDefaultWhite">
+    android:background="@color/colorDefaultWhite"
+    android:clickable="true"
+    android:focusable="true">
 
-    <androidx.cardview.widget.CardView xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    <androidx.cardview.widget.CardView
+        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cv_contacts"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,9 +23,6 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:background="?android:attr/selectableItemBackground"
-
-            android:clickable="true"
-            android:focusable="true"
             android:paddingBottom="16dp"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -34,7 +34,7 @@
                 android:layout_width="28dp"
                 android:layout_height="28dp"
                 android:layout_centerVertical="true"
-                android:src="@drawable/baseline_account_box_black_36"
+                android:src="@drawable/baseline_account_box_24"
                 android:tint="@color/colorIcon" />
 
 

@@ -12,6 +12,7 @@ import butterknife.ButterKnife;
 import de.hdodenhof.circleimageview.CircleImageView;
 import nickb.ru.vksdk.R;
 import nickb.ru.vksdk.model.Member;
+import nickb.ru.vksdk.model.Profile;
 import nickb.ru.vksdk.ui.view.holder.BaseViewHolder;
 
 public class MemberViewModel extends BaseViewModel {
@@ -24,7 +25,10 @@ public class MemberViewModel extends BaseViewModel {
 
     private String mFullName;
 
-
+    public MemberViewModel (Profile profile) {
+        this.photo = profile.getPhoto();
+        this.mFullName = profile.getFullName();
+    }
 
     public MemberViewModel(Member member) {
         this.id = member.getId();
@@ -71,7 +75,7 @@ public class MemberViewModel extends BaseViewModel {
     }
 
     @Override
-    protected BaseViewHolder onCreateViewHolder(View view) {
+    protected MemberViewHolder onCreateViewHolder(View view) {
         return new MemberViewHolder(view);
     }
 

@@ -22,8 +22,10 @@ import nickb.ru.vksdk.model.Profile;
 import nickb.ru.vksdk.mvp.view.MainView;
 import nickb.ru.vksdk.rest.api.UsersApi;
 import nickb.ru.vksdk.rest.model.request.UsersGetRequestModel;
+import nickb.ru.vksdk.ui.activity.SettingsActivity;
 import nickb.ru.vksdk.ui.fragment.BaseFragment;
 import nickb.ru.vksdk.ui.fragment.BoardFragment;
+import nickb.ru.vksdk.ui.fragment.GroupRulesFragment;
 import nickb.ru.vksdk.ui.fragment.InfoFragment;
 import nickb.ru.vksdk.ui.fragment.MembersFragment;
 import nickb.ru.vksdk.ui.fragment.MyPostsFragment;
@@ -111,6 +113,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
             case 2:
                 fragment = new MyPostsFragment();
                 break;
+            case 3:
+                getViewState().startActivityFromDrawer(SettingsActivity.class);
+                return;
             case 4:
                 fragment = new MembersFragment();
                 break;
@@ -119,6 +124,9 @@ public class MainPresenter extends MvpPresenter<MainView> {
                 break;
             case 6:
                 fragment = new InfoFragment();
+                break;
+            case 7:
+                fragment = new GroupRulesFragment();
                 break;
 
         }

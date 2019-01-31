@@ -22,7 +22,7 @@ public class InfoLinksViewModel extends BaseViewModel {
         return new InfoLinksViewHolder(view);
     }
 
-    static class InfoLinksViewHolder extends BaseViewHolder<InfoLinksViewModel> {
+ public    static class InfoLinksViewHolder extends BaseViewHolder<InfoLinksViewModel> {
 
         @BindView(R.id.rv_links)
         RelativeLayout rvLinks;
