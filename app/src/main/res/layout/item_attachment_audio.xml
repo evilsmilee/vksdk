@@ -7,7 +7,6 @@
     android:clipToPadding="false">
 
     <androidx.cardview.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/card_view"
         android:layout_gravity="center"
         android:layout_width="match_parent"
@@ -15,7 +14,6 @@
         android:layout_marginRight="16dp"
         android:layout_marginBottom="4dp"
         android:layout_height="54dp"
-        android:cardCornerRadius="0dp"
         >
 
         <RelativeLayout

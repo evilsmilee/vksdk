@@ -1,5 +1,6 @@
 package nickb.ru.vksdk.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.provider.Settings;
@@ -39,7 +40,7 @@ import nickb.ru.vksdk.rest.model.request.AccountRegisterDeviceRequest;
 import nickb.ru.vksdk.ui.fragment.BaseFragment;
 import nickb.ru.vksdk.ui.fragment.NewsFeedFragment;
 
-public class MainActivity extends BaseActivity implements MainView {
+public  class MainActivity extends BaseActivity implements MainView {
 
     @InjectPresenter
     MainPresenter mPresenter;
@@ -115,6 +116,7 @@ public class MainActivity extends BaseActivity implements MainView {
         }
     }
 
+    @SuppressLint("HardwareIds")
     @Override
     public void startSignIn() {
         VKSdk.login(this, ApiConstants.DEFAULT_LOGIN_SCOPE);
@@ -153,5 +155,10 @@ public class MainActivity extends BaseActivity implements MainView {
     @Override
     public void showFragmentFromDrawer(BaseFragment baseFragment) {
         setContent(baseFragment);
+    }
+
+    @Override
+    public void startActivityFromDrawer(Class<?> act) {
+
     }
 }

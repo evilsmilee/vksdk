@@ -30,7 +30,7 @@ public class AccountRegisterDeviceRequest extends BaseRequestModel {
 
     public AccountRegisterDeviceRequest(String deviceId) {
         this.deviceId = deviceId;
-        this.token = FirebaseInstanceId.getInstance().getToken();
+        this.token = FirebaseInstanceId.getInstance().getInstanceId().toString();
     }
 
 

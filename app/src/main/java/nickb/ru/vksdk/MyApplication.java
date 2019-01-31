@@ -6,6 +6,7 @@ import android.net.Uri;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.FirebaseApp;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.vk.sdk.VKSdk;
@@ -26,7 +27,7 @@ public class MyApplication extends Application {
         super.onCreate();
         initComponent();
         VKSdk.initialize(this);
-
+        FirebaseApp.initializeApp(this);
         Realm.init(this);
         RealmConfiguration realmConfiguration = new RealmConfiguration
                 .Builder()
@@ -50,4 +51,6 @@ public class MyApplication extends Application {
     public static ApplicationComponent getsApplicationComponent() {
         return sApplicationComponent;
     }
+
+
 }

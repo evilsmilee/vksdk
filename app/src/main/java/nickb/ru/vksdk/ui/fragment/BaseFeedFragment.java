@@ -87,9 +87,7 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     }
 
     private void setUpSwipeToRefreshLayout(View rootView) {
-        mSwipeRefreshLayout.setOnRefreshListener(() -> {
-            onCreateFeedPresenter().loadRefresh();
-        });
+        mSwipeRefreshLayout.setOnRefreshListener(() -> onCreateFeedPresenter().loadRefresh());
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
         mProgressBar = getBaseActivity().getmProgressBar();
     }

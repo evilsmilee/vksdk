@@ -7,14 +7,12 @@
     android:background="@color/colorDefaultWhite">
 
     <androidx.cardview.widget.CardView
-        xmlns:card_view="http://schemas.android.com/apk/res-auto"
         android:id="@+id/cv_links"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/cv_top"
         android:layout_gravity="center"
         android:layout_marginBottom="8dp"
-        android:cardCornerRadius="0dp"
         >
 
         <RelativeLayout
