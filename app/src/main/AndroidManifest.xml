@@ -18,7 +18,7 @@
         android:appComponentFactory="whateverString"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning"
-       >
+        tools:targetApi="p">
         <activity android:name=".ui.activity.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize">
             <intent-filter>
@@ -36,12 +36,14 @@
             android:configChanges="orientation|keyboardHidden|screenSize"/>
 
 
-    <service android:name="fcm.MyFirebaseInstanceIdService">
+    <service android:name="nickb.ru.vksdk.fcm.MyFirebaseInstanceIdService"
+        >
         <intent-filter>
             <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
         </intent-filter>
     </service>
-    <service android:name="fcm.MyFirebaseMessagingService">
+
+    <service android:name="nickb.ru.vksdk.fcm.MyFirebaseMessagingService">
         <intent-filter>
             <action android:name="com.google.firebase.MESSAGING_EVENT" />
         </intent-filter>

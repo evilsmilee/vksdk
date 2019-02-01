@@ -30,6 +30,7 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
 
     @BindView(R.id.swipe_refresh)
     protected SwipeRefreshLayout mSwipeRefreshLayout;
+
     protected ProgressBar mProgressBar;
 
     protected BaseFeedPresenter mBaseFeedPresenter;
@@ -37,12 +38,16 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
     private boolean isWithEndlessList;
 
     @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        setUpSwipeToRefreshLayout(view);
+
+        ButterKnife.bind(this, view);
+
         setUpRecycelerView(view);
         setUpAdapter(mRecyclerView);
-        ButterKnife.bind(this, view);
+        setUpSwipeToRefreshLayout(view);
+
+
         mBaseFeedPresenter = onCreateFeedPresenter();
         mBaseFeedPresenter.loadStart();
 
@@ -59,10 +64,6 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
         return R.layout.fragment_feed;
     }
 
-    @Override
-    public int onCreateToolbarTitle() {
-        return 0;
-    }
 
     private void setUpRecycelerView(View rootView) {
         MyLinearLayoutManager myLinearLayoutManager = new MyLinearLayoutManager(getActivity());
@@ -88,6 +89,7 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
 
     private void setUpSwipeToRefreshLayout(View rootView) {
         mSwipeRefreshLayout.setOnRefreshListener(() -> onCreateFeedPresenter().loadRefresh());
+
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorAccent);
         mProgressBar = getBaseActivity().getmProgressBar();
     }
@@ -131,9 +133,6 @@ public abstract class BaseFeedFragment extends BaseFragment implements BaseFeedV
 
     protected abstract BaseFeedPresenter onCreateFeedPresenter();
 
-    public boolean isWithEndlessList() {
-        return isWithEndlessList;
-    }
 
     public void setWithEndlessList(boolean withEndlessList) {
         isWithEndlessList = withEndlessList;

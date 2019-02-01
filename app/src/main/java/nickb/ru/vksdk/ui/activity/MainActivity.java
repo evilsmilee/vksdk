@@ -82,6 +82,7 @@ public  class MainActivity extends BaseActivity implements MainView {
                 .build();
         mDrawer = new DrawerBuilder()
                 .withActivity(this)
+                .withToolbar(toolbar)
                 .withTranslucentStatusBar(true)
                 .withActionBarDrawerToggle(true)
                 .withAccountHeader(mAccountHeader)

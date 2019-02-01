@@ -15,6 +15,7 @@ import io.realm.Realm;
 import io.realm.RealmConfiguration;
 import nickb.ru.vksdk.di.component.ApplicationComponent;
 
+
 import nickb.ru.vksdk.di.component.DaggerApplicationComponent;
 import nickb.ru.vksdk.di.module.ApplicationModule;
 

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/colorDefaultWhite"
-    android:fitsSystemWindows="true"
-    tools:context=".ui.fragment.NewsFeedFragment">
+    android:fitsSystemWindows="true">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipe_refresh"
@@ -16,9 +14,9 @@
         android:id="@+id/rv_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scrollbars="vertical">
+        android:scrollbars="vertical"/>
 
-    </androidx.recyclerview.widget.RecyclerView>
+
 
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 

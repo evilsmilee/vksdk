@@ -4,6 +4,7 @@ package nickb.ru.vksdk.di.module;
 import android.app.Application;
 import android.content.Context;
 import android.graphics.Typeface;
+import android.view.LayoutInflater;
 
 import javax.inject.Singleton;
 
@@ -24,6 +25,12 @@ public class ApplicationModule {
     @Provides
     public Context provideContext() {
         return mApplication;
+    }
+
+    @Provides
+    @Singleton
+    LayoutInflater provideLayoutInflater() {
+        return (LayoutInflater) mApplication.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
     }
 
     @Provides

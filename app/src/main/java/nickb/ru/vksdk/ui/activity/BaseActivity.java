@@ -1,15 +1,16 @@
 package nickb.ru.vksdk.ui.activity;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
-import android.widget.Toolbar;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import javax.inject.Inject;
 
 import androidx.annotation.LayoutRes;
+import androidx.appcompat.widget.Toolbar;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import nickb.ru.vksdk.MyApplication;
@@ -33,6 +34,11 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
     @BindView(R.id.fab)
     public FloatingActionButton mFab;
 
+    @Inject
+    LayoutInflater mLayoutInflater;
+
+    @BindView(R.id.main_wrapper)
+    FrameLayout mParent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +46,9 @@ public abstract class BaseActivity extends MvpAppCompatActivity {
         MyApplication.getsApplicationComponent().inject(this);
         setContentView(R.layout.activity_base);
         ButterKnife.bind(this);
-        setActionBar(toolbar);
+        setSupportActionBar(toolbar);
 
-
-
-        FrameLayout parent = findViewById(R.id.main_wrapper);
-        getLayoutInflater().inflate(getMainContentLayout(), parent);
+        mLayoutInflater.inflate(getMainContentLayout(), mParent);
     }
 
     public ProgressBar getmProgressBar() {

@@ -20,9 +20,9 @@ public abstract class BaseFragment extends MvpAppCompatFragment {
     @LayoutRes
     protected abstract int getMainContentLayout();
 
-    @Nullable
+
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+    public View onCreateView( LayoutInflater inflater,  ViewGroup container,  Bundle savedInstanceState) {
         return inflater.inflate(getMainContentLayout(), container, false);
     }
 
